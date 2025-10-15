@@ -1,0 +1,12 @@
+{
+  "version": "1",
+  "name": "X-Connect",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git",
+    ".idea",
+    ".vscode",
+    ".workspace"
+  ]
+}
