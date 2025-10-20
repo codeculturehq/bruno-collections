@@ -10,12 +10,12 @@ This repo ensures that every developer working on client projects uses the exact
 
 ## Getting Started
 
-### 1.Clone the Repository
-### 2. Open in Bruno
+### 1. Clone the Repository
+### 2. Open Bruno
 
-1. Install Bruno → [https://www.usebruno.com](https://www.usebruno.com)
-2. In Bruno, click **File → Open Collection** and select this folder.
-3. Bruno will automatically load all sub-collections.
+1. Install Bruno (when it is not installed) → [https://www.usebruno.com](https://www.usebruno.com)
+2. In Bruno, click **Open Collection** and select repo folder.
+3. Bruno will automatically recognize the structure and show the same tree view.
 
 ---
 
