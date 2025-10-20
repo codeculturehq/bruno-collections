@@ -1,5 +1,4 @@
-# collection-helper-bruno
-# 🐶 X-Connect Bruno Collections
+# 🐶Bruno Collections
 
 This repository centralizes all **Bruno API collections** used across customer integrations.  
 Each collection is organized by **customer name** and **integration type** (e.g., WooCommerce, Business Central, Magento, Amazon).  
