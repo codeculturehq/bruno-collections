@@ -7,4 +7,11 @@ Contains product, order, and customer endpoints for default testing and integrat
 **Auth:** Basic Auth (Consumer Key / Secret)  
 **Environment Variables:** `base_url`, `consumer_key`, `consumer_secret`
 
-**Internal Contact:** Yen Nguyen
+## Create credentials environments
+- create a  new file inside environments folder, which have same structure like **_template.bru
+- Paste your credential (e.g: from 1Password) insise {{**}}
+
+**If you have more credentials, then add more**. There is no fix template
+
+### Do not push credentials!!
+- Always check if any credential still in the files before committing and pushing 

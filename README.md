@@ -14,19 +14,19 @@ This repo ensures that every developer working on client projects uses the exact
 ### 2. Open Bruno
 
 1. Install Bruno (when it is not installed) → [https://www.usebruno.com](https://www.usebruno.com)
-2. In Bruno, click **Open Collection** and select repo folder.
+2. In Bruno, click **Open Collection** and select the folder/project which you are working in.
 3. Bruno will automatically recognize the structure and show the same tree view.
 
 ---
 
-## 3.Choose the Correct Collection
+### Example for Choosing the Correct Collection
 
-| Customer / Project | Path               | Integrations                                          |
-| ------------------ | ------------------ | ----------------------------------------------------- |
-| **Default**        | `/default`         | Base collections for WooCommerce, BC, Magento, Amazon |
-| **Carl Dietrich**  | `/carl_dietrich`   | WooCommerce + Business Central                        |
-| **Wendt & Kühn**   | `/wendt_and_kuehn` | Magento + Business Central                            |
-
+| Customer / Project | Path                     | Integrations                                          |
+| ------------------ | -------------------------| ----------------------------------------------------- |
+| **Default**        | `/default`               | Base collections for WooCommerce, BC, Magento, Amazon |
+| **Carl Dietrich**  | `/carl_dietrich`         | WooCommerce + Business Central                        |
+| **Wendt & Kühn**   | `/wendt_and_kuehn`       | Magento + Business Central                            |
+| **default/wc**     | `/default/woo-commerce`  | When working with WooCommerce endpoints               |
 ---
 
 ## Environment Setup
@@ -69,3 +69,30 @@ Use these templates to create your local environment safely.
    git push origin main
    ```
 
+## **Best Practices:**
+   - Use descriptive commit messages
+   - Test your changes before committing
+   - Keep environment-specific configurations separate
+   - Document any new endpoints or significant changes
+
+### Collaboration Guidelines
+- Always pull the latest changes before making modifications
+- Use feature branches for significant changes
+- Review changes with team members before merging to main branch
+
+## 🔒 Security Notes
+⚠️ **Important Security Information:**
+- **Environment secrets are NOT saved with their values** - You'll need to configure sensitive values (API keys, tokens, passwords) locally in your Bruno environment
+- **Never commit sensitive credentials** - The `.git` folder is ignored by Bruno, but always double-check that no secrets are included in commits
+- **Use environment variables** for all sensitive data like:
+  - API keys
+  - Authentication tokens
+  - Database credentials
+  - Private URLs
+
+  
+### Setting Up Secrets
+1. Open your desired environment in Bruno
+2. Add variables for sensitive data (e.g., `api_key`, `auth_token`)
+3. Set their values locally - these will not be synced to the repository
+4. Reference these variables in your requests using `{{variable_name}}`
