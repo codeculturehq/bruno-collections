@@ -61,6 +61,7 @@ Use these templates to create your local environment safely.
 1. Export the latest **Postman collection** as **v2.1**.
 2. In Bruno, import it via **File → Import → Postman Collection**.
 3. Save the new `.bru` files inside the correct subfolder (`default/woocommerce/api_v3.0/`, `carl_dietrich/business_central/`, etc.).
+** all variables inside **vars:secret** will be ignored in bruno, you have to set it manually.
 4. Add or update the corresponding `README.md` with documentation links.
 5. Commit and push:
    ```bash
@@ -90,7 +91,10 @@ Use these templates to create your local environment safely.
   - Database credentials
   - Private URLs
 
-  
+  **Set local environments in bruno** 
+- By top right option button, click on 'Configure' button, there you can set secret values for few keys.
+- To see all variables you set, click on the eye icon in brono (next to environment option button)
+
 ### Setting Up Secrets
 1. Open your desired environment in Bruno
 2. Add variables for sensitive data (e.g., `api_key`, `auth_token`)

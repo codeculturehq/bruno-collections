@@ -1,1 +1,4 @@
 /environments/
+**/environments/*.bru
+# But keep the shared templates
+!**/environments/*.bru.template

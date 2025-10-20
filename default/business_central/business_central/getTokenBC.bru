@@ -1,0 +1,22 @@
+meta {
+  name: getTokenBC
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://login.microsoftonline.com/{{tenant}}/oauth2/token
+  body: multipartForm
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:form-urlencoded {
+  resource: https%3A%2F%2Fapi.businesscentral.dynamics.com
+  grant_type: client_credentials
+  client_id: {{client_id}}
+  client_secret: {{client_secret}} 
+}

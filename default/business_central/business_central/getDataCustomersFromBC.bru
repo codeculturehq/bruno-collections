@@ -1,0 +1,25 @@
+meta {
+  name: getDataCustomersFromBC
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{base_url}}/inway/inwapi/v2.0/companies({{company_id}})/webShopCustomers
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+      "number": "012345",
+      "displayName": "test",
+      "displayName2": "",
+      "type": "Company",
+      "addressLine1": ""
+  }
+}
