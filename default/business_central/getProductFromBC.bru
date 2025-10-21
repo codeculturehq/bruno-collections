@@ -1,0 +1,20 @@
+meta {
+  name: getProductFromBC
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{base_url}}inway/inwapi/v2.0/companies({{company_id}})/webShopItems
+  body: none
+  auth: bearer
+}
+
+query {
+  ~$filter: cdItemNumber eq '1515145'
+  ~$expand: webShopCustomers
+}
+
+auth:bearer {
+  token: {{token}}
+}

@@ -1,7 +1,0 @@
-vars {
-  url_base: {{url_base}}
-  username: {{wc_consumer_key}}
-}
-vars:secret [
-  wc_consumer_secret
-]

@@ -5,9 +5,13 @@ meta {
 }
 
 get {
-  url: {{base_url}}/inway/inwapi/v2.0/companies({{company_id}})/webShopCustomers
+  url: {{base_url}}inway/inwapi/v2.0/companies({{company_id}})/webShopCustomers
   body: json
   auth: bearer
+}
+
+query {
+  ~$filter: number eq '00000096'
 }
 
 auth:bearer {

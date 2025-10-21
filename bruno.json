@@ -1,6 +1,6 @@
 {
   "version": "1",
-  "name": "Bruno's Collections",
+  "name": "dpipe_bruno_api_hub",
   "type": "collection",
   "ignore": [
     "node_modules",

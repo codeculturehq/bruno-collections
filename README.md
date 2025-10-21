@@ -1,4 +1,4 @@
-# 🐶Bruno Collections
+# 🐶 dpipe_bruno_api_hub
 
 This repository centralizes all **Bruno API collections** used across customer integrations.  
 Each collection is organized by **customer name** and **integration type** (e.g., WooCommerce, Business Central, Magento, Amazon).  
@@ -58,10 +58,22 @@ Use these templates to create your local environment safely.
 
 ## Adding or Updating Collections
 
-1. Export the latest **Postman collection** as **v2.1**.
-2. In Bruno, import it via **File → Import → Postman Collection**.
-3. Save the new `.bru` files inside the correct subfolder (`default/woocommerce/api_v3.0/`, `carl_dietrich/business_central/`, etc.).
-** all variables inside **vars:secret** will be ignored in bruno, you have to set it manually.
+1. Export the latest **Postman collection** as **v2.1**. If you want to export environments also, you have to go to Environments tab and export it.
+2. In Bruno, import it via **Collection → Import Collecion → Postman Collection**.
+- Choose collection file
+- Location: navigate to your local dpipe_bruno_api_hub (e.g in root folder or inside `default/`)
+3. Now you can see a folder === collection name in local, which includes `environments/`, `bruno.json` and the `requests_file.bru` 
+** every collection folder in bruno is considered as a workspace and has own environments. The `environments/`in root makes sense only when you are top admininistrator and have all rights to access to all projects.
+4. If you want to import environments from Postman, then you have to import it manually in bruno.
+- Go to the workplace you want to add environments
+- From the top right of bruno, you can see environment select button -> **Configure -> Import Environment -> Postman Environment -> env_file**
+- Here you can set secret values
+5. In local repo, you can see some <request_files>.bru which content many sensible values eg. token, secret, etc. You have 2 ways to replace those sensitive values to `key` (token: {{token}})
+- either run sanitize script:
+`make sanitize` (for root)
+`make sanitize folder=<specific_collection>` (for specific collection ex: make sanitize folder=default/business_central)
+- or replace manually the value you consider that is sensible
+** But for sure always read again the file
 4. Add or update the corresponding `README.md` with documentation links.
 5. Commit and push:
    ```bash

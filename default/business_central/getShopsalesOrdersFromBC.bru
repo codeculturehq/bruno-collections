@@ -1,0 +1,19 @@
+meta {
+  name: getShopsalesOrdersFromBC
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{base_url}}inway/inwapi/v2.0/companies({{company_id}})/webShopsalesOrders
+  body: none
+  auth: bearer
+}
+
+query {
+  ~$filter: startswith(externalDocumentNumber,'SHOP-')
+}
+
+auth:bearer {
+  token: {{token}}
+}
