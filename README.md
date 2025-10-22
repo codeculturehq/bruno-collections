@@ -98,3 +98,42 @@ Use it to create your local environment safely.
 2. Add variables for sensitive data (e.g., `api_key`, `auth_token`)
 3. Set their values locally - these will not be synced to the repository
 4. Reference these variables in your requests using `{{variable_name}}`
+
+
+## Git Hooks (Secret Protection)
+To ensure no sensitive data is ever committed, a pre-commit hook is included.
+
+1. Setup Hook (once per developer)
+
+Run:
+  ```bash
+  # use make:
+   make setup-hooks
+# or maually in root:
+   ./setup-hooks.sh
+   ```
+
+**Hook Behavior**
+
+- When committing: It scans all staged .bru files (excluding /environments/)
+
+- Blocks the commit if cleartext secrets are found (like token: 12345abc)
+
+- Allows masked placeholders (like token: {{token}})
+
+**Sensitive keywords can be catch here**
+  ```bash
+  token|secret|password|passwd|pwd|apikey|api_key|credential|private|client_secret|access_key
+   ```
+
+**Adding New Sensitive Patterns**
+
+- The hook currently detects common secret keywords automatically.
+- However, if you encounter new patterns or custom variables (for example, project-specific API keys like magento_session_id: or x-api-key:),
+you should add them manually in the hook script to strengthen the check.
+- To do that: 
+   - open githooks/pre-commit
+   - add new key word in to SENSITIVE_KEYWORDS=...
+   - save and re-run your commit
+
+💡 Always report newly found secret patterns to the team so they can be added to the global hook version.
