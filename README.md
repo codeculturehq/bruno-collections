@@ -48,6 +48,9 @@ collection-folder/
 ├── bruno.json
 └── requestsfile.bru/
 ```
+
+> 💡 Naming principle: Use snake_case for all collection names.
+
 ---
 
 ## 🔐 Credential Management Policy
