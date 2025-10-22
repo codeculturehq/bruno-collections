@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+set -e
+
+echo "🔍 Scanning .bru files for sensitive data..."
+
+# Define sensitive keywords (case-insensitive)
+SENSITIVE_KEYWORDS="token|secret|password|passwd|pwd|apikey|api_key|credential|private|client_secret|access_key"
+
+# Find all staged .bru files, excluding environments folders
+STAGED_BRU_FILES=$(git diff --cached --name-only --diff-filter=AM | grep '\.bru$' | grep -v '/environments/' || true)
+
+if [ -z "$STAGED_BRU_FILES" ]; then
+  echo "✅ No .bru files to check."
+  exit 0
+fi
+
+# Scan each .bru file for sensitive patterns (not masked with {{ }})
+VIOLATIONS_FOUND=0
+
+for FILE in $STAGED_BRU_FILES; do
+  if grep -E -i "($SENSITIVE_KEYWORDS):[[:space:]]*[^[:space:]]" "$FILE" | grep -v '{{.*}}' > /dev/null; then
+    echo "🚨 Found sensitive data in: $FILE"
+    grep -n -E -i "($SENSITIVE_KEYWORDS):[[:space:]]*[^[:space:]]" "$FILE" | grep -v '{{.*}}' || true
+    VIOLATIONS_FOUND=1
+  fi
+done
+
+if [ "$VIOLATIONS_FOUND" -eq 1 ]; then
+  echo ""
+  echo "❌ Commit blocked due to sensitive data in .bru files."
+  echo "→ Please replace real values with placeholders like {{token}} or {{password}}"
+  echo ""
+  exit 1
+fi
+
+echo "✅ All .bru files are clean. Proceeding with commit."
+exit 0

@@ -31,22 +31,8 @@ This repo ensures that every developer working on client projects uses the exact
 
 ## Environment Setup
 
-Each collection has its own `environments/` folder containing a template file named `*_template.bru`.  
-Use these templates to create your local environment safely.
-
-### Steps
-
-1. Duplicate the template file and rename it, e.g.
-   ```
-   WooCommerce_Default_Template.bru → WooCommerce_<yourname>.bru
-   ```
-
-2. Open it in Bruno and fill in your credentials from **1Password**.
-   - `shop_domain`
-   - `wc_consumer_key`
-   - `wc_consumer_secret`
-
-3. Never commit `.bru` files that contain real credentials.
+Each collection has its own `environments/` folder containing file named `*.bru`.  
+Use it to create your local environment safely.
 
 ---
 
@@ -74,8 +60,8 @@ Use these templates to create your local environment safely.
 `make sanitize folder=<specific_collection>` (for specific collection ex: make sanitize folder=default/business_central)
 - or replace manually the value you consider that is sensible
 ** But for sure always read again the file
-4. Add or update the corresponding `README.md` with documentation links.
-5. Commit and push:
+6. Add or update the corresponding `README.md` with documentation links.
+7. Commit and push:
    ```bash
    git add .
    git commit -m "Update <Project> <Integration> collection"
